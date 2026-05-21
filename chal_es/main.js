@@ -1,16 +1,16 @@
-var input = document.getElementById("input_id");
-var button = document.getElementById("btn_id");
-var text = document.getElementById("tekstni_id");
+var input = document.getElementById("nameInput");
+        var button = document.getElementById("btn");
+        var error = document.getElementById("error");
 
-button.onclick = function() {
-    text.innerHTML = input.value;
-}
+        button.onclick = function(event) {
 
-var regex = new RegExp(/0-9/);
-document.getElementById("tekstni_id").innerHTML = regex.test(text.innerHTML);
+            event.preventDefault();
 
-if (regex.test(text.innerHTML) === true) {
-    document.getElementById("tekstni_id").innerHTML = "Your input contains numbers!";
-} else {
-    document.getElementById("tekstni_id").innerHTML = "ok";
-}
+            var regex = /^[A-Za-z]+$/;
+
+            if(regex.test(input.value)) {
+                error.innerHTML = "";
+            } else {
+                error.innerHTML = "Only letters are allowed!";
+            }
+        } 
